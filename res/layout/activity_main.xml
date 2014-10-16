@@ -1,0 +1,111 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+
+    
+   <ToggleButton
+        android:id="@+id/toggleButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textOn="Server on"
+    	android:textOff="Server off"
+    	android:onClick="onToggleClicked"/>
+
+    <Switch
+        android:id="@+id/switch_magnet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/switch_gyro"
+        android:layout_alignRight="@+id/switch_gyro"
+        android:layout_below="@+id/switch_gyro"
+        android:layout_marginTop="10dp"
+        android:text="@string/magnet" />
+
+    <Switch
+        android:id="@+id/switch_gyro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/switch_accel"
+        android:layout_alignRight="@+id/switch_accel"
+        android:layout_below="@+id/switch_accel"
+        android:layout_marginTop="10dp"
+        android:text="@string/gyro" />
+
+    <Switch
+        android:id="@+id/switch_baro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/switch_magnet"
+        android:layout_alignRight="@+id/switch_magnet"
+        android:layout_below="@+id/switch_magnet"
+        android:layout_marginTop="10dp"
+        android:text="@string/baro" />
+
+    <Switch
+        android:id="@+id/switch_wifi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/switch_baro"
+        android:layout_alignRight="@+id/switch_baro"
+        android:layout_below="@+id/switch_baro"
+        android:layout_marginTop="10dp"
+        android:text="@string/wifi" />
+    
+    <Switch
+        android:id="@+id/switch_ble"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/switch_wifi"
+        android:layout_alignRight="@+id/switch_wifi"
+        android:layout_below="@+id/switch_wifi"
+        android:layout_marginTop="10dp"
+        android:text="@string/ble" />
+
+    <Switch
+        android:id="@+id/switch_gps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/switch_ble"
+        android:layout_alignRight="@+id/switch_ble"
+        android:layout_below="@+id/switch_ble"
+        android:layout_marginTop="10dp"
+        android:text="@string/gps" />
+
+    <TextView
+        android:id="@+id/textView_iptext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/switch_gps"
+        android:layout_marginTop="15dp"
+        android:text="@string/ip_text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Switch
+        android:id="@+id/switch_accel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView_ip"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/toggleButton1"
+        android:layout_marginTop="28dp"
+        android:text="@string/accel" />
+
+    <TextView
+        android:id="@+id/textView_ip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView_iptext"
+        android:layout_below="@+id/textView_iptext"
+        android:layout_marginTop="16dp"
+        android:text="@string/ip_text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</RelativeLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Sensor Transmitter</string>
+    <string name="action_settings">Settings</string>
+	<string name="accel">Accelerometer</string>
+	<string name="gyro">Gyroscope</string>
+	<string name="magnet">Magnetometer</string>
+	<string name="baro">Barometer</string>
+	<string name="wifi">Wi-Fi Scanner</string>
+	<string name="ble">BLE Scanner</string>
+	<string name="gps">GPS</string>
+	<string name="ip_text">IP addresses of this phone:</string>
+
+</resources>

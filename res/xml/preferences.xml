@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    
+<PreferenceCategory android:title="File Logger" android:key="file_log" android:summary="File logger settings">
+    
+   <CheckBoxPreference android:key="use_date_time" android:title="Date and time as suffix" android:summary="Use date and time as suffix of log files" android:defaultValue="false" />
+
+  <EditTextPreference android:key="folder_name" android:title="Folder name" android:defaultValue="SensorTransmitter"  android:summary="Folder to save log files. Default: SensorTransmitter"/>
+  </PreferenceCategory>
+         
+   <PreferenceCategory android:title="TCP Port Numbers" android:key="prefcat" android:summary="Here you select ports">
+       
+    <EditTextPreference android:key="sensors_port_num" android:title="Sensors Port Number" android:defaultValue="6000" android:numeric="integer" android:summary="This port is used to transmit sensor data. Default is 6000."/>
+   
+    <EditTextPreference android:key="gps_port_num" android:title="GPS Port Number" android:defaultValue="6001" android:numeric="integer" android:summary="This port is used to transmit GPS data. Default is 6001."/>
+    
+    <EditTextPreference android:key="wifi_port_num" android:title="Wi-Fi Port Number" android:defaultValue="6002" android:numeric="integer" android:summary="This port is used to transmit Wi-Fi data. Default is 6002."/>
+    
+    <EditTextPreference android:key="ble_port_num" android:title="BLE Port Number" android:defaultValue="6003" android:numeric="integer" android:summary="This port is used to transmit BLE data. Default is 6003."/>
+    
+   </PreferenceCategory>
+</PreferenceScreen>
