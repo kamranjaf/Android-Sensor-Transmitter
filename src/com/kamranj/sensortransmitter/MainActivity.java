@@ -194,6 +194,8 @@ public class MainActivity extends Activity implements SensorEventListener, Bluet
 	TextView my_text;
 	ToggleButton togglebutton1;
 	
+	private int ble_scan_interval;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -517,7 +519,7 @@ public class MainActivity extends Activity implements SensorEventListener, Bluet
 		       //will be thrown
 		       timer = new Timer();
 		       myTimerTask = new MyTimerTask();		   
-		       timer.schedule(myTimerTask, 1000, 1000);
+		       timer.schedule(myTimerTask, (long)ble_scan_interval, (long)ble_scan_interval);
 		}
 		
 		// initialize variables
@@ -1472,6 +1474,9 @@ public class MainActivity extends Activity implements SensorEventListener, Bluet
 	  filelogger.use_date_time = mySharedPreferences.getBoolean("use_date_time", false);
 
 	  filelogger.foldername = mySharedPreferences.getString("folder_name", "SensorTransmitter");
+	  
+	  /*BLE Parameters */
+	  ble_scan_interval = Integer.valueOf(mySharedPreferences.getString("ble_scan_int", "1000"));
 	  
 	  sensors_port_number=Integer.valueOf(mySharedPreferences.getString("sensors_port_num", "6000"));
 	  gps_port_number=Integer.valueOf(mySharedPreferences.getString("gps_port_num", "6001"));

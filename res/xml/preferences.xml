@@ -8,6 +8,10 @@
   <EditTextPreference android:key="folder_name" android:title="Folder name" android:defaultValue="SensorTransmitter"  android:summary="Folder to save log files. Default: SensorTransmitter"/>
   </PreferenceCategory>
          
+	<PreferenceCategory android:title="BLE Parameters" android:key="blecat" android:summary="Here you tuen BLE Parameters">
+        <EditTextPreference android:key="ble_scan_int" android:title="BLE Scan Interval (ms)" android:defaultValue="1000" android:numeric="integer" android:summary="BLE Scan Interval in milli-seconds."/>
+    </PreferenceCategory>
+    
    <PreferenceCategory android:title="TCP Port Numbers" android:key="prefcat" android:summary="Here you select ports">
        
     <EditTextPreference android:key="sensors_port_num" android:title="Sensors Port Number" android:defaultValue="6000" android:numeric="integer" android:summary="This port is used to transmit sensor data. Default is 6000."/>
