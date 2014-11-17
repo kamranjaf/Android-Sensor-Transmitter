@@ -7,6 +7,7 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -195,6 +196,8 @@ public class MainActivity extends Activity implements SensorEventListener, Bluet
 	ToggleButton togglebutton1;
 	
 	private int ble_scan_interval;
+	private int ble_device_types;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -768,12 +771,45 @@ public class MainActivity extends Activity implements SensorEventListener, Bluet
 	  @Override
 	    public void onLeScan(BluetoothDevice device, int rssi, byte[] scanRecord) {
 		  	byte[] adv_data = new byte[31];
-		  	System.arraycopy(scanRecord, 0, adv_data, 0, 31);
+		  	byte[] Proprietary_Prefix = {'0','0'};
+			byte[] iBeacon_Prefix = {0x02, 0x01, 0x06, 0x1A, (byte) 0xFF, 0x4C, 0x00, 0x02, 0x15};
+			System.arraycopy(scanRecord, 0, adv_data, 0, scanRecord.length<=31 ? scanRecord.length : 31);
 		  	
-		  	//if (adv_data[0]==0x30 && adv_data[1]==0x30)
-	        mDevices.add(device);
-	        mrss.add(rssi);
-	        madvdata.add(adv_data);
+		  	switch (ble_device_types){
+		  		case 1:
+		  			if (Arrays.equals(Arrays.copyOf(adv_data, 2), Proprietary_Prefix)){
+		  				mDevices.add(device);
+		  				mrss.add(rssi);
+		  				madvdata.add(adv_data);
+		  			}
+		  			break;
+		  			
+		  		case 2:
+		  			if (Arrays.equals(Arrays.copyOf(adv_data, 9), iBeacon_Prefix)){
+		  				mDevices.add(device);
+		  				mrss.add(rssi);
+		  				madvdata.add(adv_data);
+		  			}
+		  			break;
+		  			
+		  			
+		  		case 3:
+		  			if (Arrays.equals(Arrays.copyOf(adv_data, 2), Proprietary_Prefix) || Arrays.equals(Arrays.copyOf(adv_data, 9), iBeacon_Prefix)){
+		  				mDevices.add(device);
+		  				mrss.add(rssi);
+		  				madvdata.add(adv_data);
+		  			}
+		  			break;
+		  			
+		  		case 4:
+		  			mDevices.add(device);
+	  				mrss.add(rssi);
+	  				madvdata.add(adv_data);
+		  			break;
+		  		
+		  	}
+		  	
+		  	
 	    }
 
 	
@@ -1477,6 +1513,7 @@ public class MainActivity extends Activity implements SensorEventListener, Bluet
 	  
 	  /*BLE Parameters */
 	  ble_scan_interval = Integer.valueOf(mySharedPreferences.getString("ble_scan_int", "1000"));
+	  ble_device_types = Integer.valueOf(mySharedPreferences.getString("ble_device_types", "1"));
 	  
 	  sensors_port_number=Integer.valueOf(mySharedPreferences.getString("sensors_port_num", "6000"));
 	  gps_port_number=Integer.valueOf(mySharedPreferences.getString("gps_port_num", "6001"));

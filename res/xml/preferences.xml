@@ -10,6 +10,16 @@
          
 	<PreferenceCategory android:title="BLE Parameters" android:key="blecat" android:summary="Here you tuen BLE Parameters">
         <EditTextPreference android:key="ble_scan_int" android:title="BLE Scan Interval (ms)" android:defaultValue="1000" android:numeric="integer" android:summary="BLE Scan Interval in milli-seconds."/>
+           <ListPreference 
+            android:key="ble_device_types"
+            android:title="BLE Device Types"
+            android:summary="BLE Device Types to scan"
+            android:defaultValue="1"
+            android:numeric="integer" 
+            android:entries="@array/ble_device_types"
+            android:entryValues="@array/ble_device_types_Values"
+        /> 
+        
     </PreferenceCategory>
     
    <PreferenceCategory android:title="TCP Port Numbers" android:key="prefcat" android:summary="Here you select ports">
