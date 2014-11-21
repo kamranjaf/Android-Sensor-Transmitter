@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string-array name="ble_device_types">
+        <item name="Proprietary">Proprietary</item>
+        <item name="iBeacon">iBeacon</item>
+        <item name="Proprietary + iBeacon">Proprietary + iBeacon</item>
+        <item name="Any BLE Device">Any BLE Device</item>
+    </string-array>
+    
+      <string-array name="ble_device_types_Values">
+        <item name="Proprietary">1</item>
+        <item name="iBeacon">2</item>
+        <item name="Proprietary + iBeacon">3</item>
+        <item name="Any BLE Device">4</item>
+    </string-array>
+    
+</resources>
